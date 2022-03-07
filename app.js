@@ -32,4 +32,15 @@ const Player = () => {
     );
 };
 
-ReactDOM.render(<Player />, document.getElementById('root'));
+const App = () => {
+    return (
+        <div className='scoreboard'>
+            <Header />
+
+            {/* Adding player */}
+            <Player />
+        </div>
+    );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
