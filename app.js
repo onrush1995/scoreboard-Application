@@ -43,7 +43,12 @@ class Counter extends React.Component {
 const Player = (props) => {
     return (
         <div className='player'>
-            <span className='player-name'>{props.name}</span>
+            <span className='player-name'>
+                <button className='remove-player' onClick={() => props.removePlayer(props.id)}>
+                    ✖
+                </button>
+                {props.name}
+            </span>
             <Counter />
         </div>
     );
@@ -84,7 +89,12 @@ class App extends React.Component {
             <div className='scoreboard'>
                 <Header title='Scoreboard' totalPlayers={this.state.players.length} />
                 {this.state.players.map((player) => (
-                    <Player name={player.name} score={player.score} key={player.id.toString()} />
+                    <Player
+                        name={player.name}
+                        id={player.id}
+                        key={player.id.toString()}
+                        removePlayer={this.handleRemovePlayer}
+                    />
                 ))}
             </div>
         );
